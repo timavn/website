@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Personal Dashboard</title>
+   <!-- Tailwind CSS (CDN) -->
+   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
+   <style>
+     @keyframes ticker {
+       0% { transform: translateX(100%); }
+       100% { transform: translateX(-100%); }
+     }
+     .ticker-text {
+       display: inline-block;
+       white-space: nowrap;
+       animation: ticker 20s linear infinite;
+     }
+   </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+  <!-- Ticker Container -->
+  <div class="w-full bg-gray-900 text-white overflow-hidden whitespace-nowrap">
+    <div id="ticker" class="ticker-text py-2 px-4">
+      TICKER TAPE
+    </div>
+  </div>
+
+  <h1 class="text-3xl font-bold p-4">Personal Dashboard</h1>
+  <div id="app"></div>
+
+  
+  <script src="app.js"></script>
+</body>
+</html>

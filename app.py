@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request, g
 import sqlite3
-from datetime import datetime
+from datetime import datetime, timezone
 
 app = Flask(__name__)
 app.config['DATABASE'] = 'database.db'
@@ -53,7 +53,7 @@ def create_task():
     deadline = data.get('deadline', '')
     status = data.get('status', 'pending')
     
-    now = datetime.utcnow().isoformat()
+    now = datetime.now(timezone.utc).isoformat()
     db.execute('INSERT INTO tasks (title, description, deadline, status, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)',
                (title, description, deadline, status, now, now))
     db.commit()
